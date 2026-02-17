@@ -84,7 +84,7 @@ Should start web server without errors (web UI testing limited in this environme
 
 * There should generally be one test project (under the `test` directory) per shipping project (under the `src` directory). Test projects are named after the project being tested with a `.Tests` suffix.
 * Tests use xunit v3 with Microsoft.Testing.Platform (MTP v2). Traditional VSTest `--filter` syntax does NOT work.
-* Some tests are known to be unstable. When running tests, you should skip the unstable ones by using `-- --filter-not-trait "FailsInCloudTest=true"`.
+* Some tests are known to be unstable. When running tests, you should skip the unstable ones by using `-- --filter-not-trait "TestCategory=FailsInCloudTest"`.
 
 ### Running Tests
 
@@ -120,7 +120,7 @@ dotnet test --project test/Nerdbank.MessagePack.Tests/Nerdbank.MessagePack.Tests
 
 **Exclude tests with a specific trait** (skip unstable tests):
 ```bash
-dotnet test --project test/Nerdbank.MessagePack.Tests/Nerdbank.MessagePack.Tests.csproj --no-build -c Release -- --filter-not-trait "FailsInCloudTest=true"
+dotnet test --project test/Nerdbank.MessagePack.Tests/Nerdbank.MessagePack.Tests.csproj --no-build -c Release -- --filter-not-trait "TestCategory=FailsInCloudTest"
 ```
 
 **Run tests for a specific framework only**:
